@@ -1,0 +1,629 @@
+2019-09-14 14:41:35,759 [Dummy-1:5152] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+2019-09-14 14:41:35,760 [Dummy-1:5152] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 14:41:35,762 [Dummy-1:5152] [django.db.backends:111] [utils:execute] [DEBUG]- (0.002) SHOW FULL TABLES; args=None
+2019-09-14 14:41:35,766 [Dummy-1:5152] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+2019-09-14 14:49:55,867 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+2019-09-14 14:49:55,869 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 14:49:55,869 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT COUNT(*) AS `__count` FROM `blog_article`; args=()
+2019-09-14 14:49:55,881 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2019-09-14 14:49:55,883 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_comment`.`article_id`, COUNT(`blog_comment`.`article_id`) AS `comment_count` FROM `blog_comment` GROUP BY `blog_comment`.`article_id` ORDER BY `comment_count` DESC; args=()
+2019-09-14 14:49:55,885 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 1; args=(1,)
+2019-09-14 14:49:55,890 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_category`.`id`, `blog_category`.`name`, `blog_category`.`index` FROM `blog_category` ORDER BY `blog_category`.`index` ASC, `blog_category`.`id` ASC  LIMIT 6; args=()
+2019-09-14 14:49:55,903 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC  LIMIT 2; args=()
+2019-09-14 14:49:55,906 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 3; args=(3,)
+2019-09-14 14:49:55,907 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 3; args=(3,)
+2019-09-14 14:49:55,909 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 2; args=(2,)
+2019-09-14 14:49:55,911 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 2; args=(2,)
+2019-09-14 14:49:55,912 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'year' in template 'index.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [year] in <QueryDict: {}>
+2019-09-14 14:49:56,013 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'month' in template 'index.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [month] in <QueryDict: {}>
+2019-09-14 14:49:56,015 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'cid' in template 'index.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'cid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'cid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'cid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'cid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [cid] in <QueryDict: {}>
+2019-09-14 14:49:56,017 [Thread-3:20804] [django.server:154] [basehttp:log_message] [INFO]- "GET / HTTP/1.1" 200 8249
+2019-09-14 14:49:57,739 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 14:49:57,740 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2019-09-14 14:49:57,743 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2019-09-14 06:49:57.741794' AND `django_session`.`session_key` = '55r0vkg6iy7rnwj6grj5d3dkb4af02k3'); args=('2019-09-14 06:49:57.741794', '55r0vkg6iy7rnwj6grj5d3dkb4af02k3')
+2019-09-14 14:49:57,745 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_user`.`id`, `blog_user`.`password`, `blog_user`.`last_login`, `blog_user`.`is_superuser`, `blog_user`.`username`, `blog_user`.`first_name`, `blog_user`.`last_name`, `blog_user`.`email`, `blog_user`.`is_staff`, `blog_user`.`is_active`, `blog_user`.`date_joined`, `blog_user`.`avatar`, `blog_user`.`qq`, `blog_user`.`mobile`, `blog_user`.`url` FROM `blog_user` WHERE `blog_user`.`id` = 2; args=(2,)
+2019-09-14 14:49:57,746 [Thread-3:20804] [blog.views:127] [views:article] [ERROR]- 'bool' object is not callable
+2019-09-14 14:49:57,749 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2019-09-14 14:49:57,751 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_comment`.`article_id`, COUNT(`blog_comment`.`article_id`) AS `comment_count` FROM `blog_comment` GROUP BY `blog_comment`.`article_id` ORDER BY `comment_count` DESC; args=()
+2019-09-14 14:49:57,752 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 1; args=(1,)
+2019-09-14 14:49:57,755 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `blog_category`.`id`, `blog_category`.`name`, `blog_category`.`index` FROM `blog_category` ORDER BY `blog_category`.`index` ASC, `blog_category`.`id` ASC  LIMIT 6; args=()
+2019-09-14 14:49:57,758 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_user`.`id`, `blog_user`.`password`, `blog_user`.`last_login`, `blog_user`.`is_superuser`, `blog_user`.`username`, `blog_user`.`first_name`, `blog_user`.`last_name`, `blog_user`.`email`, `blog_user`.`is_staff`, `blog_user`.`is_active`, `blog_user`.`date_joined`, `blog_user`.`avatar`, `blog_user`.`qq`, `blog_user`.`mobile`, `blog_user`.`url` FROM `blog_user` WHERE `blog_user`.`id` = 1; args=(1,)
+2019-09-14 14:49:57,760 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_category`.`id`, `blog_category`.`name`, `blog_category`.`index` FROM `blog_category` WHERE `blog_category`.`id` = 2; args=(2,)
+2019-09-14 14:49:57,762 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 3; args=(3,)
+2019-09-14 14:49:57,763 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_list' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_list] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x00000230929E3950>>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <User: louis>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FEA58>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x00000230921DB160>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230921CBC50>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230921CBC88>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}, {}]
+2019-09-14 14:49:57,768 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_form' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_form] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'j7bbAqTpZOx3KErVsuc9HWQjudrcWRso85cT0la9DzeyUO5Q5UzS0iI7H6Gv9JOh'>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <User: louis>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FEA58>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x00000230921DB160>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230921CBC50>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230921CBC88>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}]
+2019-09-14 14:49:57,776 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_form' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_form] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'j7bbAqTpZOx3KErVsuc9HWQjudrcWRso85cT0la9DzeyUO5Q5UzS0iI7H6Gv9JOh'>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <User: louis>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FEA58>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x00000230921DB160>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230921CBC50>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230921CBC88>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}]
+2019-09-14 14:49:57,783 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_form' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_form] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'j7bbAqTpZOx3KErVsuc9HWQjudrcWRso85cT0la9DzeyUO5Q5UzS0iI7H6Gv9JOh'>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <User: louis>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FEA58>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x00000230921DB160>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230921CBC50>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230921CBC88>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}]
+2019-09-14 14:49:57,785 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_form' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_form] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'j7bbAqTpZOx3KErVsuc9HWQjudrcWRso85cT0la9DzeyUO5Q5UzS0iI7H6Gv9JOh'>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <User: louis>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FEA58>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x00000230921DB160>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230921CBC50>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230921CBC88>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}]
+2019-09-14 14:49:57,792 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_form' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_form] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'j7bbAqTpZOx3KErVsuc9HWQjudrcWRso85cT0la9DzeyUO5Q5UzS0iI7H6Gv9JOh'>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <User: louis>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FEA58>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x00000230921DB160>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230921CBC50>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230921CBC88>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}]
+2019-09-14 14:49:57,795 [Thread-3:20804] [django.server:154] [basehttp:log_message] [INFO]- "GET /article/?id=3 HTTP/1.1" 200 15952
+2019-09-14 14:50:26,369 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 14:50:26,370 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2019-09-14 06:50:26.366313' AND `django_session`.`session_key` = '55r0vkg6iy7rnwj6grj5d3dkb4af02k3'); args=('2019-09-14 06:50:26.366313', '55r0vkg6iy7rnwj6grj5d3dkb4af02k3')
+2019-09-14 14:50:26,373 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_user`.`id`, `blog_user`.`password`, `blog_user`.`last_login`, `blog_user`.`is_superuser`, `blog_user`.`username`, `blog_user`.`first_name`, `blog_user`.`last_name`, `blog_user`.`email`, `blog_user`.`is_staff`, `blog_user`.`is_active`, `blog_user`.`date_joined`, `blog_user`.`avatar`, `blog_user`.`qq`, `blog_user`.`mobile`, `blog_user`.`url` FROM `blog_user` WHERE `blog_user`.`id` = 2; args=(2,)
+2019-09-14 14:50:26,375 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = '55r0vkg6iy7rnwj6grj5d3dkb4af02k3'; args=('55r0vkg6iy7rnwj6grj5d3dkb4af02k3',)
+2019-09-14 14:50:26,377 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('55r0vkg6iy7rnwj6grj5d3dkb4af02k3'); args=('55r0vkg6iy7rnwj6grj5d3dkb4af02k3',)
+2019-09-14 14:50:26,436 [Thread-3:20804] [django.server:154] [basehttp:log_message] [INFO]- "GET /logout HTTP/1.1" 302 0
+2019-09-14 14:50:26,455 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 14:50:26,456 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 3; args=(3,)
+2019-09-14 14:50:26,457 [Thread-3:20804] [blog.views:127] [views:article] [ERROR]- 'bool' object is not callable
+2019-09-14 14:50:26,461 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2019-09-14 14:50:26,462 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `blog_comment`.`article_id`, COUNT(`blog_comment`.`article_id`) AS `comment_count` FROM `blog_comment` GROUP BY `blog_comment`.`article_id` ORDER BY `comment_count` DESC; args=()
+2019-09-14 14:50:26,464 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 1; args=(1,)
+2019-09-14 14:50:26,467 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_category`.`id`, `blog_category`.`name`, `blog_category`.`index` FROM `blog_category` ORDER BY `blog_category`.`index` ASC, `blog_category`.`id` ASC  LIMIT 6; args=()
+2019-09-14 14:50:26,468 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_user`.`id`, `blog_user`.`password`, `blog_user`.`last_login`, `blog_user`.`is_superuser`, `blog_user`.`username`, `blog_user`.`first_name`, `blog_user`.`last_name`, `blog_user`.`email`, `blog_user`.`is_staff`, `blog_user`.`is_active`, `blog_user`.`date_joined`, `blog_user`.`avatar`, `blog_user`.`qq`, `blog_user`.`mobile`, `blog_user`.`url` FROM `blog_user` WHERE `blog_user`.`id` = 1; args=(1,)
+2019-09-14 14:50:26,470 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_category`.`id`, `blog_category`.`name`, `blog_category`.`index` FROM `blog_category` WHERE `blog_category`.`id` = 2; args=(2,)
+2019-09-14 14:50:26,473 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 3; args=(3,)
+2019-09-14 14:50:26,473 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_list' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_list] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x00000230929E3950>>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x0000023092A65BA8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FE7F0>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000023092A65F28>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230929FEDA0>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230929FEF98>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}, {}]
+2019-09-14 14:50:26,475 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_form' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_form] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'urcpvPXTlD6UJpzhhKR4m4wn2UzlImlsjpd7VKeDZoNpTzdcUaeNFqobfNOEVeHl'>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x0000023092A65BA8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FE7F0>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000023092A65F28>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230929FEDA0>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230929FEF98>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}]
+2019-09-14 14:50:26,483 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_form' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_form] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'urcpvPXTlD6UJpzhhKR4m4wn2UzlImlsjpd7VKeDZoNpTzdcUaeNFqobfNOEVeHl'>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x0000023092A65BA8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FE7F0>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000023092A65F28>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230929FEDA0>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230929FEF98>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}]
+2019-09-14 14:50:26,485 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_form' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_form] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'urcpvPXTlD6UJpzhhKR4m4wn2UzlImlsjpd7VKeDZoNpTzdcUaeNFqobfNOEVeHl'>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x0000023092A65BA8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FE7F0>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000023092A65F28>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230929FEDA0>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230929FEF98>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}]
+2019-09-14 14:50:26,491 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_form' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_form] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'urcpvPXTlD6UJpzhhKR4m4wn2UzlImlsjpd7VKeDZoNpTzdcUaeNFqobfNOEVeHl'>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x0000023092A65BA8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FE7F0>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000023092A65F28>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230929FEDA0>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230929FEF98>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}]
+2019-09-14 14:50:26,493 [Thread-3:20804] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'comment_form' in template 'article.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\template\context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 835, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'comment_form'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [comment_form] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: 'urcpvPXTlD6UJpzhhKR4m4wn2UzlImlsjpd7VKeDZoNpTzdcUaeNFqobfNOEVeHl'>, 'request': <WSGIRequest: GET '/article/?id=3'>, 'user': <SimpleLazyObject: <django.contrib.auth.models.AnonymousUser object at 0x0000023092A65BA8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000230929FE7F0>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000023092A65F28>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'article_comment_list': [<Article: Article object (1)>], 'comment_count_list': <QuerySet [{'article': 1, 'comment_count': 1}]>, 'archive_list': ['articled on 2019.09'], 'category_list': <QuerySet [<Category: Category object (1)>, <Category: Category object (2)>]>, 'SITE_DESC': '专注Python开发，欢迎和大家交流', 'SITE_NAME': '我的的个人博客', 'SITE_URL': 'http://localhost:8000/'}, {}, {'article': <Article: Article object (3)>, 'id': '3', 'request': <WSGIRequest: GET '/article/?id=3'>}, {'block': <Block Node: left_content. Contents: [<TextNode: '\n    <div class="postdate'>, <Variable Node: article.date_publish | month_to_upper>, <TextNode: '</div>\n      <div class="'>, <Variable Node: article.date_publish | date:'d'>, <TextNode: '</div>\n    </div>\n    <di'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: article.title>, <TextNode: '</a></h2>\n        <div cl'>, <Variable Node: article.user.username>, <TextNode: '</span>\n          <span c'>, <Variable Node: article.category.name>, <TextNode: '</a></span>\n          <sp'>, <Variable Node: article.date_publish | date:'Y-m-d'>, <TextNode: '</span>\n        </div>\n  '>, <Variable Node: article.content | safe>, <TextNode: '\n        </div>\n        <'>, <ForNode: for tag in article.tag.all, tail_len: 5>, <TextNode: '\n        </span>\n        '>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '" rel="bookmark" title="'>, <Variable Node: article.title>, <TextNode: '">'>, <Variable Node: SITE_URL>, <TextNode: 'article/?id='>, <Variable Node: article.id>, <TextNode: '</a>\n        </div>\n\n    '>, <ForNode: for comment in comment_list, tail_len: 13>, <TextNode: '\n      </ol>\n\n    <div id'>, <IfNode>, <TextNode: '\n    <form action="'>, <django.template.defaulttags.URLNode object at 0x00000230929FEDA0>, <TextNode: '" method="post">\n    '>, <django.template.defaulttags.CsrfTokenNode object at 0x00000230929FEF98>, <TextNode: '\n    <p>'>, <Variable Node: comment_form.author>, <TextNode: '\n    <label for="author">'>, <Variable Node: comment_form.email>, <TextNode: '\n    <label for="email">E'>, <Variable Node: comment_form.url>, <TextNode: '\n    <label for="url">URL'>, <Variable Node: comment_form.comment>, <TextNode: '</p>\n\n    <p>\n        '>, <Variable Node: comment_form.article>, <TextNode: '\n        <input name="sub'>]>}]
+2019-09-14 14:50:26,496 [Thread-3:20804] [django.server:154] [basehttp:log_message] [INFO]- "GET /article/?id=3 HTTP/1.1" 200 16016
+2019-09-14 14:50:34,042 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 14:50:34,044 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.002) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2019-09-14 14:50:34,045 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `blog_comment`.`article_id`, COUNT(`blog_comment`.`article_id`) AS `comment_count` FROM `blog_comment` GROUP BY `blog_comment`.`article_id` ORDER BY `comment_count` DESC; args=()
+2019-09-14 14:50:34,046 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 1; args=(1,)
+2019-09-14 14:50:34,047 [Thread-3:20804] [django.server:154] [basehttp:log_message] [INFO]- "POST /comment/post/ HTTP/1.1" 200 1221
+2019-09-14 14:50:42,750 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 14:50:42,752 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2019-09-14 14:50:42,754 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_comment`.`article_id`, COUNT(`blog_comment`.`article_id`) AS `comment_count` FROM `blog_comment` GROUP BY `blog_comment`.`article_id` ORDER BY `comment_count` DESC; args=()
+2019-09-14 14:50:42,755 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 1; args=(1,)
+2019-09-14 14:50:42,757 [Thread-3:20804] [django.server:154] [basehttp:log_message] [INFO]- "GET /login HTTP/1.1" 200 951
+2019-09-14 14:50:57,296 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 14:50:57,296 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2019-09-14 14:50:57,298 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_comment`.`article_id`, COUNT(`blog_comment`.`article_id`) AS `comment_count` FROM `blog_comment` GROUP BY `blog_comment`.`article_id` ORDER BY `comment_count` DESC; args=()
+2019-09-14 14:50:57,299 [Thread-3:20804] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 1; args=(1,)
+2019-09-14 14:50:57,300 [Thread-3:20804] [django.server:154] [basehttp:log_message] [INFO]- "POST /comment/post/ HTTP/1.1" 200 1221
+2019-09-14 16:04:48,602 [Dummy-1:8076] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+2019-09-14 16:04:48,602 [Dummy-1:8076] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 16:04:48,610 [Dummy-1:8076] [django.db.backends:111] [utils:execute] [DEBUG]- (0.007) SHOW FULL TABLES; args=None
+2019-09-14 16:04:48,614 [Dummy-1:8076] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+2019-09-14 16:04:50,830 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+2019-09-14 16:04:50,831 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 16:04:50,832 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_article`; args=()
+2019-09-14 16:04:50,843 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`date_publish` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC; args=()
+2019-09-14 16:04:50,846 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_comment`.`article_id`, COUNT(`blog_comment`.`article_id`) AS `comment_count` FROM `blog_comment` GROUP BY `blog_comment`.`article_id` ORDER BY `comment_count` DESC; args=()
+2019-09-14 16:04:50,848 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` WHERE `blog_article`.`id` = 1; args=(1,)
+2019-09-14 16:04:50,855 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_category`.`id`, `blog_category`.`name`, `blog_category`.`index` FROM `blog_category` ORDER BY `blog_category`.`index` ASC, `blog_category`.`id` ASC  LIMIT 6; args=()
+2019-09-14 16:04:50,870 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_article`.`id`, `blog_article`.`title`, `blog_article`.`desc`, `blog_article`.`content`, `blog_article`.`click_count`, `blog_article`.`is_recommend`, `blog_article`.`date_publish`, `blog_article`.`user_id`, `blog_article`.`category_id` FROM `blog_article` ORDER BY `blog_article`.`date_publish` DESC  LIMIT 2; args=()
+2019-09-14 16:04:50,873 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 3; args=(3,)
+2019-09-14 16:04:50,875 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 3; args=(3,)
+2019-09-14 16:04:50,877 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `blog_tag`.`id`, `blog_tag`.`name` FROM `blog_tag` INNER JOIN `blog_article_tag` ON (`blog_tag`.`id` = `blog_article_tag`.`tag_id`) WHERE `blog_article_tag`.`article_id` = 2; args=(2,)
+2019-09-14 16:04:50,878 [Thread-2:9260] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT COUNT(*) AS `__count` FROM `blog_comment` WHERE `blog_comment`.`article_id` = 2; args=(2,)
+2019-09-14 16:04:50,880 [Thread-2:9260] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'year' in template 'index.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'year'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [year] in <QueryDict: {}>
+2019-09-14 16:04:50,882 [Thread-2:9260] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'month' in template 'index.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'month'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [month] in <QueryDict: {}>
+2019-09-14 16:04:50,884 [Thread-2:9260] [django.template:872] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'cid' in template 'index.html'.
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'cid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "c:\program files\python36\lib\site-packages\django\utils\datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'cid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QueryDict' object has no attribute 'cid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'cid'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\program files\python36\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [cid] in <QueryDict: {}>
+2019-09-14 16:04:50,889 [Thread-2:9260] [django.server:154] [basehttp:log_message] [INFO]- "GET / HTTP/1.1" 200 8249
+2019-09-14 16:14:09,328 [Dummy-1:5628] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+2019-09-14 16:14:09,329 [Dummy-1:5628] [django.db.backends:111] [utils:execute] [DEBUG]- (0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+2019-09-14 16:14:09,331 [Dummy-1:5628] [django.db.backends:111] [utils:execute] [DEBUG]- (0.002) SHOW FULL TABLES; args=None
+2019-09-14 16:14:09,336 [Dummy-1:5628] [django.db.backends:111] [utils:execute] [DEBUG]- (0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()

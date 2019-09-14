@@ -1,0 +1,2 @@
+2019-09-14 14:49:57,746 [Thread-3:20804] [blog.views:127] [views:article] [ERROR]- 'bool' object is not callable
+2019-09-14 14:50:26,457 [Thread-3:20804] [blog.views:127] [views:article] [ERROR]- 'bool' object is not callable
